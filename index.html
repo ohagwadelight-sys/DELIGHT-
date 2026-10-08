@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DELiGHT - Lagos Life Top-Up</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;color:#fff;background:#050816;min-height:100vh;padding:22px;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background-image:linear-gradient(#fff1 1px,transparent 1px),linear-gradient(90deg,#fff1 1px,transparent 1px);background-size:35px 35px;animation:grid 12s linear infinite}
+@keyframes grid{to{background-position:35px 35px}}
+.wrap{max-width:720px;margin:auto;position:relative;z-index:1}
+.hero{text-align:center;padding:28px 20px 22px;border:1px solid #29365f;border-radius:26px;background:#0a1024ee;animation:rise .7s ease both;box-shadow:0 20px 60px #0008}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.logo{width:76px;height:76px;margin:auto;border-radius:22px;display:grid;place-items:center;font-size:31px;font-weight:1000;background:linear-gradient(135deg,#8b5cf6,#22d3ee);box-shadow:0 0 35px #8b5cf655;animation:pulse 2.4s infinite}
+@keyframes pulse{50%{transform:scale(1.05);box-shadow:0 0 50px #22d3ee66}}
+h1{font-size:38px;margin:13px 0 5px;letter-spacing:2px}.tag{color:#9eabd0;margin:0}.live{display:inline-block;margin-top:13px;color:#61f2a1;font-size:12px;font-weight:bold}
+.card{margin-top:18px;padding:22px;border:1px solid #29365f;border-radius:24px;background:linear-gradient(145deg,#101a38ee,#090f22ee);box-shadow:0 15px 45px #0007;animation:rise .8s .1s ease both}
+label{display:block;font-weight:800;margin:14px 0 7px}
+input{width:100%;min-height:48px;padding:13px 14px;border-radius:12px;border:1px solid #34436e;background:#070c1c;color:#fff;font-size:16px;outline:none}
+input:focus{border-color:#22d3ee;box-shadow:0 0 0 3px #22d3ee18}
+.packages{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+.pkg{border:1px solid #304064;background:#0b1328;color:#fff;border-radius:14px;padding:14px;cursor:pointer;transition:.2s;text-align:left}
+.pkg:hover,.pkg.active{transform:translateY(-2px);border-color:#8b5cf6;background:#17153a;box-shadow:0 8px 25px #8b5cf622}
+.pkg b{display:block;font-size:18px}.pkg small{color:#9eabd0}
+.summary{margin-top:17px;padding:18px;border-radius:17px;background:linear-gradient(120deg,#19134a,#092e3c);border:1px solid #43518b}
+.row{display:flex;justify-content:space-between;gap:12px;margin:8px 0}.total{font-size:27px;color:#67e8f9}
+#send{width:100%;min-height:52px;margin-top:17px;border:0;border-radius:14px;color:#fff;font-size:17px;font-weight:900;background:linear-gradient(90deg,#7c3aed,#06b6d4);cursor:pointer;box-shadow:0 10px 30px #06b6d433;transition:.2s}
+#send:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.note{text-align:center;color:#8f9bb9;font-size:12px;line-height:1.55;margin:14px 3px 0}footer{text-align:center;color:#667292;font-size:12px;margin:18px}
+@media(max-width:480px){h1{font-size:31px}.card{padding:17px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<div class="logo">D</div><h1>DELiGHT</h1>
+<p class="tag">Lagos Life Top-Up Center</p><div class="live">● ONLINE ORDER DESK</div>
+</section>
+<section class="card">
+<label for="username">Lagos Life Username</label>
+<input id="username" type="text" placeholder="Enter your game username" autocomplete="off">
+<label for="phone">Phone Number</label>
+<input id="phone" type="tel" placeholder="08012345678">
+<label>Choose Your Package</label>
+<div class="packages">
+<button type="button" class="pkg active" data-value="1000|20 Billion"><b>20 Billion</b><small>₦1,000</small></button>
+<button type="button" class="pkg" data-value="2000|40 Billion"><b>40 Billion</b><small>₦2,000</small></button>
+<button type="button" class="pkg" data-value="3000|60 Billion"><b>60 Billion</b><small>₦3,000</small></button>
+<button type="button" class="pkg" data-value="5000|100 Billion"><b>100 Billion</b><small>₦5,000</small></button>
+<button type="button" class="pkg" data-value="10000|200 Billion"><b>200 Billion</b><small>₦10,000</small></button>
+<button type="button" class="pkg" data-value="20000|400 Billion"><b>400 Billion</b><small>₦20,000</small></button>
+<button type="button" class="pkg" data-value="50000|1 Trillion"><b>1 Trillion</b><small>₦50,000</small></button>
+<button type="button" class="pkg" data-value="100000|2 Trillion"><b>2 Trillion</b><small>₦100,000</small></button>
+</div>
+<div class="summary"><div class="row"><span>Game money</span><strong id="money">20 Billion</strong></div><div class="row"><span>Price</span><strong id="price" class="total">₦1,000</strong></div></div>
+<button type="button" id="send">💬 Continue on WhatsApp</button>
+<p class="note">Your order request is sent to DELiGHT on WhatsApp. Payment and any in-game transfer are handled manually.</p>
+</section>
+<footer>© 2026 DELiGHT • Lagos Life Top-Up</footer>
+</div>
+<script>
+const WHATSAPP="2349125870382";let selected="1000|20 Billion";
+const money=document.getElementById("money"),price=document.getElementById("price");
+function showPackage(value){selected=value;const [amount,gameMoney]=value.split("|");money.textContent=gameMoney;price.textContent="₦"+Number(amount).toLocaleString("en-NG")}
+document.querySelectorAll(".pkg").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".pkg").forEach(x=>x.classList.remove("active"));btn.classList.add("active");showPackage(btn.dataset.value)}));
+document.getElementById("send").addEventListener("click",()=>{const username=document.getElementById("username").value.trim(),phone=document.getElementById("phone").value.trim();if(!username||!phone){alert("Please enter your Lagos Life username and phone number.");return}const [amount,gameMoney]=selected.split("|");const message=`🎮 DELiGHT TOP-UP REQUEST
+
+Username: ${username}
+Phone: ${phone}
+Package: ${gameMoney}
+Price: ₦${Number(amount).toLocaleString("en-NG")}
+
+Hello DELiGHT, I want to order this package.`;window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(message),"_blank")});
+showPackage(selected);
+</script>
+</body>
+</html>
